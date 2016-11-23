@@ -1,5 +1,7 @@
 language: bash
 
-before_install: cd socat
+before_install: 
+ - mkdir /build
+ - cd socat
 
 script: ./build.sh
