@@ -1,0 +1,5 @@
+language: bash
+
+before_install: cd socat
+
+script: ./build.sh
