@@ -13,7 +13,7 @@ OPENSSL_VERSION=1.0.2e
 
 
 function build_musl() {
-    cd /build
+    cd build
 
     # Download
     curl -LO http://www.musl-libc.org/releases/musl-${MUSL_VERSION}.tar.gz
@@ -27,7 +27,7 @@ function build_musl() {
 }
 
 function build_ncurses() {
-    cd /build
+    cd build
 
     # Download
     curl -LO http://invisible-island.net/datafiles/release/ncurses.tar.gz
@@ -41,7 +41,7 @@ function build_ncurses() {
 }
 
 function build_readline() {
-    cd /build
+    cd build
 
     # Download
     curl -LO ftp://ftp.cwru.edu/pub/bash/readline-${READLINE_VERSION}.tar.gz
@@ -60,7 +60,7 @@ function build_readline() {
 }
 
 function build_openssl() {
-    cd /build
+    cd build
 
     # Download
     curl -LO https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
@@ -76,7 +76,7 @@ function build_openssl() {
 }
 
 function build_socat() {
-    cd /build
+    cd build
 
     # Download
     curl -LO http://www.dest-unreach.org/socat/download/socat-${SOCAT_VERSION}.tar.gz
@@ -103,14 +103,14 @@ function doit() {
     build_socat
 
     # Copy to output
-    if [ -d /output ]
+    if [ -d output ]
     then
-        OUT_DIR=/output/`uname | tr 'A-Z' 'a-z'`/`uname -m`
+        OUT_DIR=output/`uname | tr 'A-Z' 'a-z'`/`uname -m`
         mkdir -p $OUT_DIR
         cp /build/socat-${SOCAT_VERSION}/socat $OUT_DIR/
         echo "** Finished **"
     else
-        echo "** /output does not exist **"
+        echo "** output does not exist **"
     fi
 }
 
